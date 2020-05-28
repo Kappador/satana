@@ -8,19 +8,19 @@ const logger = require("../utils/logger");
 
 const {token, prefix} = require("../cfg.json");
 
-const Discord = require("discord.js-selfbot");
-const bot = new Discord.Client();
+const {Client} = require("discord.js-selfbot");
+const bot = new Client();
 
 let commands = {};
 
 bot.on("ready", () => {
-    logger.success(`logged in as ${bot.user.tag}`);
+    logger.success(`Logged in as ${bot.user.tag}`);
 });
 
 bot.on("message", msg => {
     let content = msg.content;
 
-    if(msg.author.id != "188128887383785472") return;
+    if(msg.author.id != bot.user.id) return;
     if(content.startsWith(prefix)) {
         let command = commands[content.replace(prefix, "").split(" ")[0]];
         if(command) {
@@ -37,7 +37,6 @@ bot.on("message", msg => {
 // loads the commands
 cUtil.loadCommands("commands").then(cmds => {
     commands = cmds;
-    logger.success("commands loaded");
-
+    logger.success("Commands loaded");
     bot.login(token);
 });
