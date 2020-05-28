@@ -6,9 +6,10 @@
 const fs = require("fs");
 const logger = require("./logger");
 
+let commands = {};
+
 module.exports.loadCommands = (dir) => {
     return new Promise((resolve, reject) => {
-        let commands = {};
 
         // reads the directory ./dir/[dir]
         fs.readdir(`./bot/${dir}`, (err, cmds) => {
@@ -29,11 +30,11 @@ module.exports.loadCommands = (dir) => {
                     let info = cmd.info;
         
                     // adds original command to object
-                    commands[cmds[i].split(".")[0]] = {"permission": info.permission, "file": `./commands/${cmds[i]}`};
+                    commands[cmds[i].split(".")[0]] = {"permission": info.permission, "file": `../commands/${cmds[i]}`};
         
                     // adds all the aliases to the object
                     for(let x = 0; x < info.aliases.length; x++) {
-                        commands[info.aliases[x]] = {"permission": info.permission, "file": `./commands/${cmds[i]}`};
+                        commands[info.aliases[x]] = {"permission": info.permission, "file": `../commands/${cmds[i]}`};
                     }
         
                     // logs to the console when the command has been loaded
@@ -47,4 +48,8 @@ module.exports.loadCommands = (dir) => {
             }
         });
     });
+}
+
+module.exports.getCommand = (command) => {
+    return commands[command];
 }

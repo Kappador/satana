@@ -4,39 +4,31 @@
  */
 
 const cUtil = require("../utils/command");
+const eUtil = require("../utils/events");
 const logger = require("../utils/logger");
 
-const {token, prefix} = require("../cfg.json");
+const {token} = require("../cfg.json");
 
 const {Client} = require("discord.js-selfbot");
 const bot = new Client();
 
 let commands = {};
 
-bot.on("ready", () => {
-    logger.success(`Logged in as ${bot.user.tag}`);
-});
-
-bot.on("message", msg => {
-    let content = msg.content;
-
-    if(msg.author.id != bot.user.id) return;
-    if(content.startsWith(prefix)) {
-        let command = commands[content.replace(prefix, "").split(" ")[0]];
-        if(command) {
-            let cmd = require(command.file);
-            let args = content.split(" ").slice(1);            
-
-            cmd.run(bot, msg, args);
-        } else {
-            return msg.channel.send("Invalid command");
-        }
-    }
-});
-
 // loads the commands
 cUtil.loadCommands("commands").then(cmds => {
     commands = cmds;
+
     logger.success("Commands loaded");
     bot.login(token);
+});
+
+// gets events
+eUtil.getEvents("events").then(events => {
+    // loops through events
+    for(let i = 0; i < events.length; i++) {
+        let event = require(`./events/${events[i]}`);
+
+        // waits for events to be fired
+        bot.on(events[i].split(".")[0], event.bind(null, bot));
+    }
 });
