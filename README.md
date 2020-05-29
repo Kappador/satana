@@ -1,0 +1,1 @@
+f*ck all of u paid selfbots lol
