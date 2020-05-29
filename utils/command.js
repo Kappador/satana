@@ -43,7 +43,7 @@ module.exports.loadCommands = (dir) => {
                     // invalid command gets logged to console as a warning
                     logger.warning(`Unable to load ${cmds[i]}`);
                 }
-
+                
                 if(i == cmds.length - 1) return resolve(commands);
             }
         });

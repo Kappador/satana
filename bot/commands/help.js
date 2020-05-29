@@ -16,27 +16,29 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete();
 
+        let page = 1;
+
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));
 
             return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${info.name}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\`\`\``);
-        }
-
-        let message = `\`\`\`asciidoc\nShowing information for: ALL\n=====\n`;
+        } else if(args[1] && !isNaN(parseInt(args[1]))) page = parseInt(args[1]);
 
         cUtil.getCommands("commands").then(cmds => {
             let keys = Object.keys(cmds);
-
-            for(let i = 0; i < keys.length; i++) {
-                let cmd = cmds[keys[i]];
-                message += `${cmd.name} :: ${cmd.description} - type: ${prefix}${cmd.name} info\n`;
-
-                if(i == keys.length - 1) {
+        
+            let pageArr = keys.slice((page - 1) * 10, page * 10);
+            let message = `\`\`\`asciidoc\nShowing information for: ALL (Page: ${page})\n=====\n`;
+        
+            for(let i = 0; i < pageArr.length; i++) {
+                let cmd = cmds[pageArr[i]];
+                message += `${cmd.name} :: ${cmd.description} - type: ${"."}${cmd.name} info\n`;
+        
+                if(i == pageArr.length - 1) {
                     message += `\`\`\``;
                     msg.channel.send(message);
                 }
             }
-
-        });
+        })
     }
 }
