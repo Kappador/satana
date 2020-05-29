@@ -30,11 +30,11 @@ module.exports.loadCommands = (dir) => {
                     let info = cmd.info;
         
                     // adds original command to object
-                    commands[cmds[i].split(".")[0]] = {"permission": info.permission, "file": `../commands/${cmds[i]}`};
+                    commands[cmds[i].split(".")[0]] = {"permission": info.permission, "name": info.name, "description": info.description, "file": `../commands/${cmds[i]}`};
         
                     // adds all the aliases to the object
                     for(let x = 0; x < info.aliases.length; x++) {
-                        commands[info.aliases[x]] = {"permission": info.permission, "file": `../commands/${cmds[i]}`};
+                        commands[info.aliases[x]] = {"permission": info.permission, "name": info.name, "description": info.description, "file": `../commands/${cmds[i]}`};
                     }
         
                     // logs to the console when the command has been loaded

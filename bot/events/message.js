@@ -9,7 +9,7 @@ module.exports = (bot, msg) => {
         let command = cUtil.getCommand(content.replace(prefix, "").split(" ")[0]);
         if(command) {
             let cmd = require(command.file);
-            let args = content.split(" ").slice(1);            
+            let args = content.split(" ");       
 
             cmd.run(bot, msg, args);
         } else {
