@@ -19,7 +19,6 @@ cUtil.loadCommands("commands").then(cmds => {
     commands = cmds;
 
     logger.success("Commands loaded");
-    bot.login(token);
 });
 
 // gets events
@@ -32,3 +31,5 @@ eUtil.getEvents("events").then(events => {
         bot.on(events[i].split(".")[0], event.bind(null, bot));
     }
 });
+
+bot.login(token);

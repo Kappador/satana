@@ -53,3 +53,34 @@ module.exports.loadCommands = (dir) => {
 module.exports.getCommand = (command) => {
     return commands[command];
 }
+
+module.exports.getCommands = (dir) => {
+    return new Promise((resolve, reject) => {
+        let cmd = {};
+
+        // reads the directory ./dir/[dir]
+        fs.readdir(`./bot/${dir}`, (err, cmds) => {
+            
+            // if error reading dir
+            if(err) {
+                // log it and exit
+                logger.err(`Unable to read directory: ${dir}`);
+                return process.exit(69);
+            }
+
+            // gets the keys from object 
+            let keys = Object.keys(commands);
+
+            // loops through keys
+            for(let i = 0; i < keys.length; i++) {
+                // checks if key is in the dir (don't want aliases)
+                if(cmds.indexOf(`${keys[i]}.js`) > -1) {
+                    // adds it to the cmd object
+                    cmd[keys[i]] = this.getCommand(keys[i]);
+                }
+
+                if(i == keys.length - 1) return resolve(cmd);
+            }
+        });
+    });
+}

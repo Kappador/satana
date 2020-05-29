@@ -22,7 +22,21 @@ module.exports = {
             return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${info.name}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\`\`\``);
         }
 
-        // haha im funny lololol
-        msg.channel.send("//TODO: Help Command");
+        let message = `\`\`\`asciidoc\nShowing information for: ALL\n=====\n`;
+
+        cUtil.getCommands("commands").then(cmds => {
+            let keys = Object.keys(cmds);
+
+            for(let i = 0; i < keys.length; i++) {
+                let cmd = cmds[keys[i]];
+                message += `${cmd.name} :: ${cmd.description} - type: ${prefix}${cmd.name} info\n`;
+
+                if(i == keys.length - 1) {
+                    message += `\`\`\``;
+                    msg.channel.send(message);
+                }
+            }
+
+        });
     }
 }
