@@ -19,7 +19,6 @@ module.exports = {
         msg.delete();
 
         let amm = 1;
-        
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));
 
