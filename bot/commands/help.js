@@ -19,7 +19,7 @@ module.exports = {
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));
 
-            return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${info.name}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nPermission :: ${info.permission}\`\`\``);
+            return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${info.name}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\`\`\``);
         }
 
         // haha im funny lololol
