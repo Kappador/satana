@@ -17,7 +17,7 @@ module.exports.loadCommands = (dir) => {
             // if error reading dir
             if(err) {
                 // log it and exit
-                logger.err(`Unable to read directory: ${dir}`);
+                logger.error(`Unable to read directory: ${dir}`);
                 return process.exit(69);
             }
             
@@ -41,7 +41,7 @@ module.exports.loadCommands = (dir) => {
                     logger.success(`Loaded ${cmds[i]}`);
                 } else {
                     // invalid command gets logged to console as a warning
-                    logger.warn(`Unable to load ${cmds[i]}`);
+                    logger.warning(`Unable to load ${cmds[i]}`);
                 }
 
                 if(i == cmds.length - 1) return resolve(commands);
@@ -64,7 +64,7 @@ module.exports.getCommands = (dir) => {
             // if error reading dir
             if(err) {
                 // log it and exit
-                logger.err(`Unable to read directory: ${dir}`);
+                logger.error(`Unable to read directory: ${dir}`);
                 return process.exit(69);
             }
 

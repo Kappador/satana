@@ -15,7 +15,7 @@ module.exports.getEvents = (dir) => {
             // if error reading dir
             if(err) {
                 // log it and exit
-                logger.err(`Unable to read directory: ${dir}`);
+                logger.error(`Unable to read directory: ${dir}`);
                 return process.exit(69);
             }
 
