@@ -8,7 +8,7 @@ const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info": {
-        "permission": 100,
+        "permission": 0,
         "name": "help",
         "description": "Provides a useful help embed",
         "aliases": ["h", "?"]

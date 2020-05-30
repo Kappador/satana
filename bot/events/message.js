@@ -6,7 +6,6 @@ const fs = require("fs");
 module.exports = (bot, msg) => {
     let content = msg.content;
 
-    if(msg.author.id != bot.user.id) return;
     if(content.startsWith(prefix)) {
         let command = cUtil.getCommand(content.replace(prefix, "").split(" ")[0]);
         if(command) {
