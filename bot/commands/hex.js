@@ -3,10 +3,13 @@
  * @since 29-05-2020
  */
 
+const cUtil = require("../../utils/command");
+const {prefix} = require("../../cfg.json");
+
 module.exports = {
     "info" : {
         "permission": 0,
-        "name": "Hex",
+        "name": "hex",
         "description": "Converts provided hex color to decimal for use in embeds",
         "aliases": ["hex"]
     },
@@ -18,17 +21,14 @@ module.exports = {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));
 
             return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${args[0].replace(prefix, "")}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\`\`\``);
-        } else if(args[1] && !isNaN(parseInt(args[1]))) amm = parseInt(args[1]);
+        }
 
-        if (args[0].startsWith("#"))
-            args[0] = args[0].replace("#", "0x");
+        if (args[1].startsWith("#"))
+            args[1] = args[1].replace("#", "0x");
 
-        if (args[0].startsWith("#"))
-            args[0] = args[0].replace("#", "0x");
-
-        msg.channel.send({
-            "title": "**Converted Color**",
-            "color": 12054375,
+        msg.channel.send({ embed: {
+            "title": "Converted Color",
+            "color": args[1],
             "footer": {
               "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
               "text": "Satana go brrr"
@@ -36,15 +36,15 @@ module.exports = {
             "fields": [
                 {
                     "name" : "Hex",
-                    "value" : args[0],
+                    "value" : args[1],
                     "inline" : true
                 },
                 {
                     "name" : "Decimal",
-                    "value" : parseInt(args[0]),
+                    "value" : parseInt(args[1]),
                     "inline" : true
                 }
             ]
-        });
+        }});
     }
 }

@@ -1,1 +1,1 @@
-f*ck all of u paid selfbots lol
+f*ck all of u paid selfbots

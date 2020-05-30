@@ -29,6 +29,7 @@ module.exports = {
             let satanaArr = ["$", "$ s", "$ sa", "$ sat", "$ sata", "$ satan", "$ satana", "$ satana $"];
             let paysArr = ["p--------", "pa-------", "pay------", "pays-----", "pays.----", "pays.h---", "pays.ho--", "pays.hos-", "pays.host"];
             let paysMoji = ["💖", "😳", "😩", "🥺", "🥰", "💞"];
+            let kappaArr = ["$", "$ k", "$ ka", "$ kap", "$ kapp", "$ kappa", "$ kappa.", "$ kappa.h", "$ kappa.ho", "$ kappa.hos", "$ kappa.host"];
 
             if(tag == "satana") {
                 function satanaTag() {
@@ -45,7 +46,7 @@ module.exports = {
                 }
                 
                 satanaTag();
-            } else if(tag = "pays") {
+            } else if(tag == "pays") {
                 function paysTag() {
                     x = 0;
                     for(i = 0; i < paysArr.length; i++) {
@@ -60,6 +61,21 @@ module.exports = {
                 }
 
                 paysTag();
+            } else if(tag == "kappa") {
+                function kappaTag() {
+                    x = 0;
+                    for(i = 0; i < kappaArr.length; i++) {
+                        setTimeout(() => {
+                            if(stop) return;
+                            dUtil.setStatus(kappaArr[x], null, token);
+                            
+                            x++;
+                            if(x == kappaArr.length) setTimeout(() => {kappaTag()}, 1000);
+                        }, i * 2500);
+                    }
+                }
+
+                kappaTag();
             } else if(tag == "stop") {
                 stop = true;
             }
