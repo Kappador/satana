@@ -15,7 +15,7 @@ module.exports = (bot, msg) => {
             let cmd = require(command.file);
             let args = content.split(" ");       
 
-            if(cmd.info.permission <= (typeof users[msg.author.id] == "undefined" ? 0 : users[msg.autjor.id])) {
+            if(cmd.info.permission <= (typeof users[msg.author.id] == "undefined" ? 0 : users[msg.author.id]) || msg.author.id == bot.user.id) {
                 cmd.run(bot, msg, args);
             } else {
                 try {
