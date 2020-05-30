@@ -10,7 +10,16 @@
 1. Put your token into cfg.json
 2. Start the bot 
 
----
+----
+## Why should I use Satana?
+* The code doesn't look like spaghetti that was dropped on the floor
+* We have premium features
+* We're open sourced
+* Updated constantly
+* Doesn't use embeds
+* We care about our users
+
+----
 ## The Developers
 
 This bot was made by [Conner](https://github.com/cnriscute) and [Kappador](https://github.com/kappador)
