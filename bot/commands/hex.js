@@ -4,7 +4,7 @@
  */
 
 const cUtil = require("../../utils/command");
-const {prefix} = require("../../cfg.json");
+const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info" : {
@@ -14,8 +14,9 @@ module.exports = {
         "aliases": ["hex"]
     },
     run : (bot, msg, args) => {
-
-        msg.delete();
+        try {
+            msg.delete();
+        } catch(e) {}
 
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));

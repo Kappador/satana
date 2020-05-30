@@ -7,7 +7,7 @@ const cUtil = require("../utils/command");
 const eUtil = require("../utils/events");
 const logger = require("../utils/logger");
 
-const {token} = require("../cfg.json");
+const {token} = require("../data/cfg.json");
 
 const {Client} = require("discord.js-selfbot");
 const bot = new Client();

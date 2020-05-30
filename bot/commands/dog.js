@@ -4,7 +4,7 @@
  */
 
 const cUtil = require("../../utils/command");
-const {prefix} = require("../../cfg.json");
+const {prefix} = require("../../data/cfg.json");
 
 const request = require("request-promise");
 
@@ -16,7 +16,9 @@ module.exports = {
         "aliases": ["d", "p", "puppy"]
     },
     run: (bot, msg, args) => {
-        msg.delete();
+        try {
+            msg.delete();
+        } catch(e) {}
 
         let amm = 1;
         if(args[1] && args[1].toLowerCase() == "info") {

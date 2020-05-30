@@ -4,7 +4,7 @@
  */
 
 const cUtil = require("../../utils/command");
-const {prefix} = require("../../cfg.json");
+const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info": {
