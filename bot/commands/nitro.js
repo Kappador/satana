@@ -14,7 +14,7 @@ module.exports = {
         "aliases": ["n", "gift"]
     },
     run: (bot, msg, args) => {
-        msg.delete().catch(() => {});
+        msg.delete().catch(e => {});
 
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));

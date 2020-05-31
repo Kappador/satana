@@ -17,14 +17,10 @@ module.exports = (bot, msg) => {
             if(cmd.info.permission <= (typeof users[msg.author.id] == "undefined" ? 0 : users[msg.author.id]) || msg.author.id == bot.user.id) {
                 cmd.run(bot, msg, args);
             } else {
-                try {
-                    msg.delete();
-                } catch(e) {}
+                msg.delete().catch(() => {});
 
-                msg.channel.send(`\`\`\`asciidoc\nERROR\n=====\nError :: Invalid permissions\n\`\`\``);
+                //msg.channel.send(`\`\`\`asciidoc\nERROR\n=====\nError :: Invalid permissions\n\`\`\``);
             }
-        } else {
-            return msg.channel.send("Invalid command");
         }
     }
 }
