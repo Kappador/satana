@@ -28,7 +28,8 @@ module.exports = {
             let keys = Object.keys(cmds);
         
             let pageArr = keys.slice((page - 1) * 10, page * 10);
-            let message = `\`\`\`asciidoc\nShowing information for: ALL (Page: ${page})\n=====\n`;
+            let totalPages = Math.ceil(keys.length / 10);
+            let message = `\`\`\`asciidoc\nShowing information for: ALL (Page: ${page}/${totalPages})\n=====\n`;
         
             for(let i = 0; i < pageArr.length; i++) {
                 let cmd = cmds[pageArr[i]];
