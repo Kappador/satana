@@ -10,15 +10,13 @@ const request = require("request-promise");
 
 module.exports = {
     "info": {
-        "permission": 0,
+        "permission": 1,
         "name": "cat",
         "description": "Gets picture of a cat",
         "aliases": ["c", "k", "kitty"]
     },
     run: (bot, msg, args) => {
-        try {
-            msg.delete();
-        } catch(e) {}
+        msg.delete().catch(() => {});
 
         let amm = 1;
         

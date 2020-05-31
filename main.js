@@ -4,4 +4,3 @@
  */
 
 const bot = require("./bot/bot");
-// testing

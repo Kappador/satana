@@ -12,15 +12,13 @@ let stop = false;
 
 module.exports = {
     "info": {
-        "permission": 0,
+        "permission": 1,
         "name": "clantag",
         "description": "Changes your clantag",
         "aliases": ["clan", "tag", "ct"]
     },
     run: (bot, msg, args) => {
-        try {
-            msg.delete();
-        } catch(e) {}
+        msg.delete().catch(() => {});
         
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));

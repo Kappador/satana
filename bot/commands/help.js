@@ -8,15 +8,13 @@ const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info": {
-        "permission": 0,
+        "permission": 1,
         "name": "help",
         "description": "Provides a useful help embed",
         "aliases": ["h", "?"]
     },
     run: (bot, msg, args) => {
-        try {
-            msg.delete();
-        } catch(e) {}
+        msg.delete().catch(() => {});
 
         let page = 1;
 

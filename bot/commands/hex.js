@@ -8,15 +8,13 @@ const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info" : {
-        "permission": 0,
+        "permission": 1,
         "name": "hex",
         "description": "Converts provided hex color to decimal for use in embeds",
         "aliases": ["hex"]
     },
     run : (bot, msg, args) => {
-        try {
-            msg.delete();
-        } catch(e) {}
+        msg.delete().catch(() => {});
 
         if(args[1] && args[1].toLowerCase() == "info") {
             let info = cUtil.getCommand(args[0].replace(prefix, ""));

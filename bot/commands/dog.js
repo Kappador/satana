@@ -10,15 +10,13 @@ const request = require("request-promise");
 
 module.exports = {
     "info": {
-        "permission": 0,
+        "permission": 1,
         "name": "dog",
         "description": "Gets picture of a dog",
         "aliases": ["d", "p", "puppy"]
     },
     run: (bot, msg, args) => {
-        try {
-            msg.delete();
-        } catch(e) {}
+        msg.delete().catch(() => {});
 
         let amm = 1;
         if(args[1] && args[1].toLowerCase() == "info") {

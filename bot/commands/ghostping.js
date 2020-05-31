@@ -8,7 +8,7 @@ const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info": {
-        "permission": 0,
+        "permission": 1,
         "name": "ghostping",
         "description": "Ghostpings the mentioned users",
         "aliases": ["gp", "ghost"]
