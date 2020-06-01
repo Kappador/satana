@@ -25,6 +25,6 @@ module.exports = {
         if (args[1].startsWith("#"))
             args[1] = args[1].replace("#", "0x");
 
-        msg.channel.send(`\`\`\`asciidoc\nConverted\n=====\nHex :: ${args[1]}\n\nDecimal :: ${parseInt(args[1])}\n\`\`\``);
+        msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nHex :: ${args[1]}\n\nDecimal :: ${parseInt(args[1])}\n\`\`\``);
     }
 }
