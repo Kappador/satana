@@ -14,6 +14,6 @@ module.exports = {
         "aliases": ["gp", "ghost"]
     },
     run: (bot, msg, args) => {
-        setTimeout(() => {msg.delete()}, 2000);
+        setTimeout(() => {msg.delete()}, 200);
     }
 }
