@@ -3,9 +3,6 @@
  * @since 28-05-2020
  */
 
-const cUtil = require("../../utils/command");
-const {prefix} = require("../../data/cfg.json");
-
 const request = require("request-promise");
 
 module.exports = {
@@ -17,7 +14,7 @@ module.exports = {
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
-
+        
         request({
             uri: "https://api.thecatapi.com/v1/images/search",
             json: true

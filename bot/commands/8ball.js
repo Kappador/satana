@@ -3,11 +3,6 @@
  * @since 01-06-2020
  */
 
-const cUtil = require("../../utils/command");
-const {prefix} = require("../../data/cfg.json");
-
-const request = require("request-promise");
-
 module.exports = {
     "info": {
         "permission": 1,
@@ -18,7 +13,7 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
 
-        let answers = ["Yes", "No", "Maybe", "It's possible", "Why should I know?", "¯\_(ツ)_/¯", "Not a clue", "100%", "Definitely", "Ofcourse", "God no", "Not at all", "LOL! Funny joke :)"];
+        let answers = ["Yes", "No", "Maybe", "It's possible", "Why should I know?", "¯\\_(ツ)_/¯", "Not a clue", "100%", "Definitely", "Ofcourse", "God no", "Not at all", "LOL! Funny joke :)"];
         let question = args.join(" ");
 
         if(question) {

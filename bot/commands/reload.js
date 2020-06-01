@@ -13,7 +13,7 @@ module.exports = {
         "description": "Reloads a given command",
         "aliases": ["r"]
     },
-    run: (bot, msg, args) => {
+    run: async (bot, msg, args) => {
         msg.delete().catch(() => { });
 
         let file = args[0];
@@ -23,7 +23,9 @@ module.exports = {
 
             if (last3 != ".js") file += ".js";
 
-            if(fs.existsSync(`./${file}`)){
+            try {
+                await fs.promises.access(`./bot/commands/${file}`);
+            } catch(error) {
                 return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError ::  File not found\n\`\`\``);
             }
 
@@ -31,7 +33,7 @@ module.exports = {
                 delete require.cache[require.resolve(`./${file}`)];
             }
             
-            cUtil.loadCommand(file);
+            cUtil.loadCommand(`${file}`);
             return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Reloaded ${file}\n\`\`\``);
         } else {
             return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError ::  Invalid syntax\n\`\`\``);

@@ -3,11 +3,9 @@
  * @since 29-05-2020
  */
 
-const cUtil = require("../../utils/command");
 const dUtil = require("../../utils/discord");
-const {prefix, token} = require("../../data/cfg.json");
+const {token} = require("../../data/cfg.json");
 
-const request = require("request-promise");
 let stop = false;
 
 module.exports = {

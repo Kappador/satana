@@ -3,9 +3,6 @@
  * @since 28-05-2020
  */
 
-const cUtil = require("../../utils/command");
-const {prefix} = require("../../data/cfg.json");
-
 module.exports = {
     "info": {
         "permission": 1,
