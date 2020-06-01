@@ -8,6 +8,30 @@ const logger = require("./logger");
 
 let commands = {};
 
+loadCommand = (command) => {
+    let cmd = require(`../bot/commands/${command}`);
+    
+    // makes sure the command is valid
+    if(typeof cmd.info == "object") {
+        let info = cmd.info;
+
+        // adds original command to object
+        commands[command.split(".")[0]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": info.aliases, "file": `../commands/${command}`};
+
+        // adds all the aliases to the object
+        for(let x = 0; x < info.aliases.length; x++) {
+            commands[info.aliases[x]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": info.aliases, "file": `../commands/${command}`};
+        }
+
+        // logs to the console when the command has been loaded
+        logger.success(`Loaded ${command}`);
+    } else {
+        // invalid command gets logged to console as a warning
+        logger.warning(`Unable to load ${command}`);
+    }  
+}
+
+
 module.exports.loadCommands = (dir) => {
     return new Promise((resolve, reject) => {
 
@@ -23,27 +47,9 @@ module.exports.loadCommands = (dir) => {
             
             // loop through all commands found in dir
             for(let i = 0; i < cmds.length; i++) {
-                let cmd = require(`../bot/commands/${cmds[i]}`);
 
-                // makes sure the command is valid
-                if(typeof cmd.info == "object") {
-                    let info = cmd.info;
-        
-                    // adds original command to object
-                    commands[cmds[i].split(".")[0]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": info.aliases, "file": `../commands/${cmds[i]}`};
-        
-                    // adds all the aliases to the object
-                    for(let x = 0; x < info.aliases.length; x++) {
-                        commands[info.aliases[x]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": info.aliases, "file": `../commands/${cmds[i]}`};
-                    }
-        
-                    // logs to the console when the command has been loaded
-                    logger.success(`Loaded ${cmds[i]}`);
-                } else {
-                    // invalid command gets logged to console as a warning
-                    logger.warning(`Unable to load ${cmds[i]}`);
-                }
-                
+                loadCommand(cmds[i]);
+
                 if(i == cmds.length - 1) return resolve(commands);
             }
         });
@@ -84,3 +90,5 @@ module.exports.getCommands = (dir) => {
         });
     });
 }
+
+module.exports.loadCommand = loadCommand;
