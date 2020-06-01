@@ -8,7 +8,8 @@ module.exports = {
         "permission": 1,
         "name": "1337",
         "description": "M4k3s y0u sp34k l1k3 7h1s",
-        "aliases": ["leet"]
+        "aliases": ["leet"],
+        "syntax": "1337 [message]"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});

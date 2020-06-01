@@ -10,7 +10,8 @@ module.exports = {
         "permission": 1,
         "name": "wouldyourather",
         "description": "Gives you an would you rather question",
-        "aliases": ["wyr", "wouldyou"]
+        "aliases": ["wyr", "wouldyou"],
+        "syntax": "wouldyourather"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});

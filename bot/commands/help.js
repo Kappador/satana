@@ -10,7 +10,8 @@ module.exports = {
         "permission": 1,
         "name": "help",
         "description": "Provides a useful help embed",
-        "aliases": ["h", "?"]
+        "aliases": ["h", "?"],
+        "syntax": "help [page]"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});

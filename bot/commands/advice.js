@@ -10,7 +10,8 @@ module.exports = {
         "permission": 1,
         "name": "advice",
         "description": "Gives you an advice",
-        "aliases": []
+        "aliases": [],
+        "syntax": "advice"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});

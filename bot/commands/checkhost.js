@@ -10,7 +10,8 @@ module.exports = {
         "permission": 1,
         "name": "checkhost",
         "description": "Checks if a website is up",
-        "aliases": ["online", "isup", "check", "up"]
+        "aliases": ["online", "isup", "check", "up"],
+        "syntax": "checkhost [host]"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});

@@ -8,7 +8,8 @@ module.exports = {
         "permission": 1,
         "name": "nitro",
         "description": "Generates a random discord.gift link",
-        "aliases": ["n", "gift"]
+        "aliases": ["n", "gift"],
+        "syntax": "nitro"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(e => {});

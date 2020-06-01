@@ -11,7 +11,8 @@ module.exports = {
         "permission": 1,
         "name": "reload",
         "description": "Reloads a given command",
-        "aliases": ["r"]
+        "aliases": ["r"],
+        "syntax": "reload [command file]"
     },
     run: async (bot, msg, args) => {
         msg.delete().catch(() => { });

@@ -10,7 +10,8 @@ module.exports = {
         "permission": 1,
         "name": "dog",
         "description": "Gets picture of a dog",
-        "aliases": ["d", "p", "puppy"]
+        "aliases": ["d", "p", "puppy"],
+        "syntax": "dog"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});

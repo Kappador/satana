@@ -8,7 +8,8 @@ module.exports = {
         "permission": 1,
         "name": "ghostping",
         "description": "Ghostpings the mentioned users",
-        "aliases": ["gp", "ghost"]
+        "aliases": ["gp", "ghost"],
+        "syntax": "ghostping [user]"
     },
     run: (bot, msg, args) => {
         setTimeout(() => {msg.delete()}, 200);

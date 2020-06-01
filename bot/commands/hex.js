@@ -8,7 +8,8 @@ module.exports = {
         "permission": 1,
         "name": "hex",
         "description": "Converts provided hex color to decimal for use in embeds",
-        "aliases": ["hex"]
+        "aliases": ["hex"],
+        "syntax": "hex [hexcolor]"
     },
     run : (bot, msg, args) => {
         msg.delete().catch(() => {});

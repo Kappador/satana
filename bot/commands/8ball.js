@@ -8,7 +8,8 @@ module.exports = {
         "permission": 1,
         "name": "8ball",
         "description": "Returns a random answer for a question",
-        "aliases": ["8", "ball"]
+        "aliases": ["8", "ball"],
+        "syntax": "8ball [question]"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
