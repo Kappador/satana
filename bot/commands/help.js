@@ -17,12 +17,7 @@ module.exports = {
         msg.delete().catch(() => {});
 
         let page = 1;
-
-        if(args[1] && args[1].toLowerCase() == "info") {
-            let info = cUtil.getCommand(args[0].replace(prefix, ""));
-
-            return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${info.name}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\`\`\``);
-        } else if(args[1] && !isNaN(parseInt(args[1]))) page = parseInt(args[1]);
+        if(args[1] && !isNaN(parseInt(args[1]))) page = parseInt(args[1]);
 
         cUtil.getCommands("commands").then(cmds => {
             let keys = Object.keys(cmds);
