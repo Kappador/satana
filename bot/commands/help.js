@@ -17,7 +17,7 @@ module.exports = {
         msg.delete().catch(() => {});
 
         let page = 1;
-        if(args[1] && !isNaN(parseInt(args[1]))) page = parseInt(args[1]);
+        if(args[0] && !isNaN(parseInt(args[0]))) page = parseInt(args[0]);
 
         cUtil.getCommands("commands").then(cmds => {
             let keys = Object.keys(cmds);

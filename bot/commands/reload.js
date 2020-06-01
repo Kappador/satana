@@ -4,29 +4,33 @@
  */
 
 const cUtil = require("../../utils/command");
-const {prefix} = require("../../data/cfg.json");
+const { prefix } = require("../../data/cfg.json");
 
 module.exports = {
-    "info" : {
+    "info": {
         "permission": 1,
         "name": "reload",
         "description": "Reloads a given command",
         "aliases": ["r"]
     },
-    run : (bot, msg, args) => {
-        msg.delete().catch(() => {});
+    run: (bot, msg, args) => {
+        msg.delete().catch(() => { });
 
-        let file = args[1];
-        let last3 = file.substr(file.length - 3);
+        let file = args[0];
 
-        if (last3 != ".js")
-            file += ".js";
+        if (file) {
+            let last3 = file.substr(file.length - 3);
 
-        delete require.cache[require.resolve(`./${file}`)];
+            if (last3 != ".js") file += ".js";
 
-        require(`./${file}`);
-
-        msg.channel.send(`Reloaded ${file}`);
-
+            if(typeof require.cache[require.resolve(`./${file}`)] == "object") {
+                delete require.cache[require.resolve(`./${file}`)];
+            }
+            
+            require(`./${file}`);
+            return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Reloaded ${file}\n\`\`\``);
+        } else {
+            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError ::  Invalid syntax\n\`\`\``);
+        }
     }
 }

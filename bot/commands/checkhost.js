@@ -18,13 +18,13 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
         
-        if(args[1]) {
+        if(args[0]) {
             request({
-                uri: `https://check-host.net/check-http?host=${args[1]}&max_nodes=3`,
+                uri: `https://check-host.net/check-http?host=${args[0]}&max_nodes=3`,
                 json: true
             }).then(data => {
                 let nodes = Object.keys(data.nodes);
-                let message  = `\`\`\`asciidoc\nSUCCESS!\n=====\n= Results for ${args[1]} =\n`;
+                let message  = `\`\`\`asciidoc\nSUCCESS!\n=====\n= Results for ${args[0]} =\n`;
             
                 for(let i = 0; i < nodes.length; i++) {
                     let node = data.nodes[nodes[i]];
