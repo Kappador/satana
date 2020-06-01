@@ -20,8 +20,8 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
         
-        if(args[1]) {
-            let tag = args[1];
+        if(args[0]) {
+            let tag = args[0];
             let satanaArr = ["$", "$ s", "$ sa", "$ sat", "$ sata", "$ satan", "$ satana", "$ satana $"];
             let paysArr = ["p--------", "pa-------", "pay------", "pays-----", "pays.----", "pays.h---", "pays.ho--", "pays.hos-", "pays.host"];
             let paysMoji = ["💖", "😳", "😩", "🥺", "🥰", "💞"];
