@@ -19,7 +19,7 @@ module.exports = (bot, msg) => {
                     msg.delete().catch(() => {});
                     
                     let info = cUtil.getCommand(args[0].replace(prefix, ""));
-                    return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${args[0].replace(prefix, "")}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\Syntax :: ${info.syntax}\`\`\``);
+                    return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${args[0].replace(prefix, "")}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\nSyntax :: ${info.syntax}\`\`\``);
                 } else {
                     cmd.run(bot, msg, args.slice(1));
                 }
