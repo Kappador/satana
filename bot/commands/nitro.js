@@ -16,12 +16,6 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(e => {});
 
-        if(args[1] && args[1].toLowerCase() == "info") {
-            let info = cUtil.getCommand(args[0].replace(prefix, ""));
-
-            return msg.channel.send(`\`\`\`asciidoc\nShowing information for: ${info.name}\n=====\nCommand :: ${info.name}\nDescription :: ${info.description}\nAliases :: ${info.aliases.toString().replace(/\,/g, ", ")}\nPermission :: ${info.permission}\`\`\``);
-        }
-
         let charset = "ABCDEFGHIKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz1234567890";
         let code = "";
 
