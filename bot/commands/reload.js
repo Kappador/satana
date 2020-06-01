@@ -26,7 +26,7 @@ module.exports = {
             try {
                 await fs.promises.access(`./bot/commands/${file}`);
             } catch(error) {
-                return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError ::  File not found\n\`\`\``);
+                return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: File not found\n\`\`\``);
             }
 
             if(typeof require.cache[require.resolve(`./${file}`)] == "object") {
@@ -36,7 +36,7 @@ module.exports = {
             cUtil.loadCommand(`${file}`);
             return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Reloaded ${file}\n\`\`\``);
         } else {
-            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError ::  Invalid syntax\n\`\`\``);
+            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
         }
     }
 }
