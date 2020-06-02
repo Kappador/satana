@@ -16,7 +16,7 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
         
-        let alphabet = [ "A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        let alphabet = [ "A", "B", "C", "E", "D", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         
         msg.channel.send("Big message").then(alphabetMessage => {
             function alphabetEdit() {
