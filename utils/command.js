@@ -5,6 +5,7 @@
 
 const fs = require("fs");
 const logger = require("./logger");
+const {prefix} = require("../data/cfg.json");
 
 let commands = {};
 
@@ -16,11 +17,11 @@ loadCommand = (command) => {
         let info = cmd.info;
 
         // adds original command to object
-        commands[command.split(".")[0]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": typeof info.aliases !== 'undefined' && info.aliases.length > 0 ? info.aliases : "None defined", "syntax": info.syntax, "file": `../commands/${command}`};
+        commands[command.split(".")[0]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": typeof info.aliases !== 'undefined' && info.aliases.length > 0 ? info.aliases : "None defined", "syntax": prefix + info.syntax, "file": `../commands/${command}`};
 
         // adds all the aliases to the object
         for(let x = 0; x < info.aliases.length; x++) {
-            commands[info.aliases[x]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": info.aliases, "syntax": info.syntax, "file": `../commands/${command}`};
+            commands[info.aliases[x]] = {"permission": info.permission, "name": info.name, "description": info.description, "aliases": info.aliases, "syntax": prefix + info.syntax, "file": `../commands/${command}`};
         }
 
         // logs to the console when the command has been loaded
