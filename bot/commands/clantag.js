@@ -6,8 +6,6 @@
 const dUtil = require("../../utils/discord");
 const {token} = require("../../data/cfg.json");
 
-let stop = false;
-
 module.exports = {
     "info": {
         "permission": 1,
@@ -32,7 +30,13 @@ module.exports = {
 
             switch(tag) {
                 case "satana":
+                    
+                    clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
+                    x = 0;
+
                     global.ct = setInterval(() => {
+
                         dUtil.setStatus(satana[x], null, token);
                         x++;
 
@@ -41,8 +45,14 @@ module.exports = {
 
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to SATANA\n\`\`\``);
                     break;
-                case "kappa":
+                case "kappa":   
+
+                    clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
+                    x = 0;
+                    
                     global.ct = setInterval(() => {
+
                         dUtil.setStatus(kappa[x], null, token);
                         x++;
 
@@ -51,8 +61,14 @@ module.exports = {
 
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to KAPPA\n\`\`\``);
                     break;
-                case "host":
+                case "host":   
+                                 
+                    clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
+                    x = 0;
+                    
                     global.ct = setInterval(() => {
+
                         dUtil.setStatus(host[x], null, token);
                         x++;
 
@@ -61,9 +77,15 @@ module.exports = {
 
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to HOST\n\`\`\``);
                     break;
-                case "otc":
+                case "otc":   
+                                 
+                    clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
+                    x = 0;
+                
                     // Thanks Quake =)
                     global.ct = setInterval(() => {
+
                         dUtil.setStatus(otc[x], null, token);
                         x++;
 
@@ -96,8 +118,8 @@ module.exports = {
                     break;
                 case "stop":
                     clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
                     x = 0;
-
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Stopped clantag\n\`\`\``);
                     break;
             }
