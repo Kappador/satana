@@ -47,6 +47,8 @@ module.exports = {
                     sent.edit(`\`\`\`asciidoc\nERROR!\n=====\nError :: Failed to get answers for ${id}\n\`\`\``);
                 })
             });
+        } else {
+            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
         }
     }
 }   
