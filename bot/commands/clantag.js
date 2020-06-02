@@ -12,7 +12,7 @@ module.exports = {
         "name": "clantag",
         "description": "Changes your clantag",
         "aliases": ["clan", "tag", "ct"],
-        "syntax": "clantag [host]"
+        "syntax": "clantag [satana / kappa / host / otc / gs / aw]"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
