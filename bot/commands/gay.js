@@ -16,8 +16,8 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
 
-        if(msg.author.id == "188128887383785472") return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness :: 0%\n\`\`\``);
+        if(msg.mentions.users.first() == "568256682921164812") return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness of Kappador :: 0%\n\`\`\``);
 
-        msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness :: ${Math.floor(Math.random() * 100) + 1}%\n\`\`\``);
+        msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness of ${msg.mentions.users.first().username} :: ${Math.floor(Math.random() * 100) + 1}%\n\`\`\``);
     }
 }

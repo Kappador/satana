@@ -2,5 +2,6 @@
     "token": "TOKEN",
     "prefix": "PREFIX",
     "email": "EMAIL",
-    "password": "PASSWORD"
+    "password": "PASSWORD",
+    "ban_message": "Fucked by satana n_N"
 }
