@@ -95,6 +95,11 @@ module.exports = {
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to OTC\n\`\`\``);
                     break;
                 case "gs":
+
+                    clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
+                    x = 0;
+
                     // Thanks Quake =)
                     global.ct = setInterval(() => {
                         dUtil.setStatus(gs[x], null, token);
@@ -106,6 +111,11 @@ module.exports = {
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to GS\n\`\`\``);
                     break;
                 case "aw":
+
+                    clearInterval(global.ct);
+                    dUtil.setStatus("", null, token);
+                    x = 0;
+
                     // Thanks Quake =)
                     global.ct = setInterval(() => {
                         dUtil.setStatus(aw[x], null, token);
