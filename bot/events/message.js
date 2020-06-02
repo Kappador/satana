@@ -15,7 +15,7 @@ module.exports = (bot, msg) => {
             let args = content.split(" ");     
 
             if(cmd.info.permission <= (typeof users[msg.author.id] == "undefined" ? 0 : users[msg.author.id]) || msg.author.id == bot.user.id) {
-                if(args[1] && args[1].toLowerCase() ? "info" : "help") {
+                if(args[1] && args[1].toLowerCase() == "info") {
                     msg.delete().catch(() => {});
                     
                     let info = cUtil.getCommand(args[0].replace(prefix, ""));

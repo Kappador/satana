@@ -23,8 +23,6 @@ module.exports = {
         let kappa = ["$£_.-$0-1'", "k£_.-$0-1'", "ka_.-$0-1'", "kap.-$0-1'", "kapp-$0-1'", "kappa$0-1'", "kappa.0-1'", "kappa.h-1'", "kappa.ho1'", "kappa.hos'", "kappa.host"];
         let host = ["p", "p.", "pa", "pa.", "pay", "pay.", "pays", "pays.", "pays.", "pays.h", "pays.h.", "pays.ho", "pays.ho.", "pays.hos", "pays.hos.", "pays.host"];
         let otc = ["onetap.su", "netap.su o", "etap.su on", "tap.su one", "ap.su onet", "p.su oneta", ".su onetap", "su onetap.", "u onetap.", "onetap.s"];
-        
-        let ct;
 
         if(args[0]) {
             let tag = args[0];
@@ -32,7 +30,7 @@ module.exports = {
 
             switch(tag) {
                 case "satana":
-                    ct = setInterval(() => {
+                    global.ct = setInterval(() => {
                         dUtil.setStatus(satana[x], null, token);
                         x++;
 
@@ -42,7 +40,7 @@ module.exports = {
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to SATANA\n\`\`\``);
                     break;
                 case "kappa":
-                    ct = setInterval(() => {
+                    global.ct = setInterval(() => {
                         dUtil.setStatus(kappa[x], null, token);
                         x++;
 
@@ -52,7 +50,7 @@ module.exports = {
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to KAPPA\n\`\`\``);
                     break;
                 case "host":
-                    ct = setInterval(() => {
+                    global.ct = setInterval(() => {
                         dUtil.setStatus(host[x], null, token);
                         x++;
 
@@ -63,7 +61,7 @@ module.exports = {
                     break;
                 case "otc":
                     // Thanks Quake =)
-                    ct = setInterval(() => {
+                    global.ct = setInterval(() => {
                         dUtil.setStatus(otc[x], null, token);
                         x++;
 
@@ -73,8 +71,8 @@ module.exports = {
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to OTC\n\`\`\``);
                     break;
                 case "stop":
-                    console.log(ct); // undefined
-                    clearInterval(ct);
+                    console.log(global.ct); // undefined
+                    clearInterval(global.ct);
                     x = 0;
 
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Stopped clantag\n\`\`\``);
