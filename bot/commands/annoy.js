@@ -20,13 +20,11 @@ module.exports = {
         let amount = parseInt(args[1]);
         let message = args.slice(2).join(" ");
 
-        msg.channel.send(message);
-
-        for(i = 1; i < amount; i++) {
-            setTimeout(() => {
-                msg.channel.send(message);
-            }, interval);
-        }
+        setInterval(() => {
+            if (amount===0) return;
+            msg.channel.send(message);
+            amount--;
+        }, interval);  
 
     }
 }
