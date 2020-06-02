@@ -7,8 +7,7 @@
 
 ----
 ## How do I use selfbot?
-1. Put your token into cfg.json
-2. Start the bot 
+You can see the setup guide located [here](https://github.com/Kappador/satana/wiki/)
 
 ----
 ## Why should I use Satana?
