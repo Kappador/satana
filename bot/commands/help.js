@@ -4,6 +4,7 @@
  */
 
 const cUtil = require("../../utils/command");
+const {prefix} = require("../../data/cfg.json");
 
 module.exports = {
     "info": {
@@ -28,7 +29,7 @@ module.exports = {
         
             for(let i = 0; i < pageArr.length; i++) {
                 let cmd = cmds[pageArr[i]];
-                message += `${cmd.name} :: ${cmd.description} - type: ${"."}${cmd.name} info\n`;
+                message += `${cmd.name} :: ${cmd.description} - type: ${prefix}${cmd.name} info\n`;
         
                 if(i == pageArr.length - 1) {
                     message += `\`\`\``;
