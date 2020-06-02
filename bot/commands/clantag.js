@@ -23,6 +23,8 @@ module.exports = {
         let kappa = ["$£_.-$0-1'", "k£_.-$0-1'", "ka_.-$0-1'", "kap.-$0-1'", "kapp-$0-1'", "kappa$0-1'", "kappa.0-1'", "kappa.h-1'", "kappa.ho1'", "kappa.hos'", "kappa.host"];
         let host = ["p", "p.", "pa", "pa.", "pay", "pay.", "pays", "pays.", "pays.", "pays.h", "pays.h.", "pays.ho", "pays.ho.", "pays.hos", "pays.hos.", "pays.host"];
         let otc = ["onetap.su", "netap.su o", "etap.su on", "tap.su one", "ap.su onet", "p.su oneta", ".su onetap", "su onetap.", "u onetap.", "onetap.s"];
+        let gs = ["g", "ga", "gam", "game", "games", "gamese", "gamesen", "gamesens", "gamesense", "gamesens", "gamesen", "gamese", "games", "game", "gam", "ga", "g"];
+        let aw = ["AIMWARE.NET", "IMWARE.NET A", "MWARE.NET AI", "WARE.NET AIM", "ARE.NET AIMW", "RE.NET AIMWA", "E.NET AIMWAR", ".NET AIMWARE", "NET AIMWARE.", "ET AIMWARE.N", "T AIMWARE.NE"];
 
         if(args[0]) {
             let tag = args[0];
@@ -70,8 +72,29 @@ module.exports = {
 
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to OTC\n\`\`\``);
                     break;
+                case "gs":
+                    // Thanks Quake =)
+                    global.ct = setInterval(() => {
+                        dUtil.setStatus(gs[x], null, token);
+                        x++;
+
+                        if(x == gs.length) x = 0;
+                    }, 2500);
+
+                    msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to GS\n\`\`\``);
+                    break;
+                case "aw":
+                    // Thanks Quake =)
+                    global.ct = setInterval(() => {
+                        dUtil.setStatus(aw[x], null, token);
+                        x++;
+
+                        if(x == aw.length) x = 0;
+                    }, 2500);
+
+                    msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Clantag has been set to AW\n\`\`\``);
+                    break;
                 case "stop":
-                    console.log(global.ct); // undefined
                     clearInterval(global.ct);
                     x = 0;
 
