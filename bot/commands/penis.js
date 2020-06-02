@@ -16,6 +16,8 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
 
+        if(msg.author.id == "188128887383785472") return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis :: 8=================================================================D\n\`\`\``);
+
         let penis = "8";
         for(let i = 0; i < Math.floor(Math.random() * 59); i++) penis += "=";
 
