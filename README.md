@@ -7,7 +7,7 @@
 
 ----
 ## How do I use selfbot?
-You can see the setup guide located [here](https://github.com/Kappador/satana/wiki/)
+You can see the setup guide located [here](https://github.com/Kappador/satana/wiki/wiki)
 
 ----
 ## Why should I use Satana?
