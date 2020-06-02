@@ -1,4 +1,6 @@
 {
     "token": "TOKEN",
-    "prefix": "PREFIX"
+    "prefix": "PREFIX",
+    "email": "EMAIL",
+    "password": "PASSWORD"
 }

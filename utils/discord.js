@@ -47,5 +47,45 @@ module.exports = {
                 return resolve(e);
             });
         });
-    } 
+    },
+    setProfilePicture: (path, token, email, password, bot) => {
+        request({
+            method: "PATCH",
+            uri: "https://discordapp.com/api/v6/users/@me",
+            headers: {
+                "Authorization": token,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "" : {
+                    "avatar": path,
+                    "discriminator": bot.user.discriminator,
+                    "email": email,
+                    "new_password": null,
+                    "password": password,
+                    "username": bot.user.username
+                }
+            })
+        }).then(() => {});
+    },
+    setUsername: (username, token, email, password, bot) => {
+        request({
+            method: "PATCH",
+            uri: "https://discordapp.com/api/v6/users/@me",
+            headers: {
+                "Authorization": token,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "" : {
+                    "avatar": bot.user.avatar,
+                    "discriminator": bot.user.discriminator,
+                    "email": email,
+                    "new_password": null,
+                    "password": password,
+                    "username": username
+                }
+            })
+        }).then((data) => {console.log(data)});
+    }
 };
