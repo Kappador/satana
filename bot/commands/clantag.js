@@ -6,8 +6,6 @@
 const dUtil = require("../../utils/discord");
 const {token} = require("../../data/cfg.json");
 
-let stop = false;
-
 module.exports = {
     "info": {
         "permission": 1,
