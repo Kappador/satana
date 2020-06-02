@@ -17,10 +17,10 @@ module.exports = {
         msg.delete().catch(() => {});
 
         request({
-            uri: "https://www.rrrather.com/botapi",
+            uri: "https://www.rrrather.com/botapi?explanation=true",
             json: true
         }).then(data => {
-            msg.channel.send(`\`\`\`asciidoc\nSUCCESS\n=====\n= Would you rather =\n1 :: ${data.choicea}\n2 :: ${data.choiceb}\n\`\`\``)
+            msg.channel.send(`\`\`\`asciidoc\nSUCCESS\n=====\n= ${data.title} =\n1 :: ${data.choicea}\n2 :: ${data.choiceb}\n\`\`\``)
             .then((message) => {
                 message.react('1️⃣').then(() => {message.react('2️⃣')});
             });
