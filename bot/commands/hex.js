@@ -14,8 +14,13 @@ module.exports = {
     run : (bot, msg, args) => {
         msg.delete().catch(() => {});
 
-        if (args[0].startsWith("#")) args[0] = args[0].replace("#", "0x");
+        if(args.length >= 1) {
+            let hex = args[0];
+            if(hex.startsWith("#")) hex = hex.replace("#", "0x");
 
-        msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nHex :: ${args[0]}\nDecimal :: ${parseInt(args[0])}\n\`\`\``);
+            return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nHex :: ${hex}\nDecimal :: ${parseInt(hex)}`);
+        } else {
+            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
+        }
     }
 }

@@ -17,5 +17,6 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
 
+        return msg.channel.send("Coming soon =)");
     }
 }

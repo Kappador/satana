@@ -16,15 +16,18 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
 
-        let interval = parseInt(args[0]);
-        let amount = parseInt(args[1]);
-        let message = args.slice(2).join(" ");
+        if(args.length >= 3) {
+            let interval = parseInt(args[0]);
+            let amount = parseInt(args[1]);
+            let message = args.slice(2).join(" ");
 
-        setInterval(() => {
-            if (amount===0) return;
-            msg.channel.send(message);
-            amount--;
-        }, interval);  
-
+            for(let i = 0; i < amount; i++) {
+                setTimeout(() => {
+                    msg.channel.send(message);
+                }, i * interval);
+            }
+        } else {
+            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
+        }
     }
 }

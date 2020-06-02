@@ -15,14 +15,11 @@ module.exports = {
         msg.delete().catch(() => {});
 
         let message = args.join(" ");
-
+        
         if(message) {
-
-           message = '**' + message + '**';
-           msg.channel.send(message); 
-
+            return msg.channel.send(`**${message}**`);
         } else {
-
+            return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
         }
     }
 }

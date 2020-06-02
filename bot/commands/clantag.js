@@ -132,6 +132,11 @@ module.exports = {
                     x = 0;
                     msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Stopped clantag\n\`\`\``);
                     break;
+                default: 
+
+                    msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid clantag\n\`\`\``);
+
+                    break;
             }
         }
     }
