@@ -21,12 +21,20 @@ module.exports = {
             json: true
         }).then(data => {
 
-            if (data.url.status == 1) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Link already has been shortened\n\`\`\``);
-            if (data.url.status == 2) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid domain, please invlude https:// or http://\n\`\`\``);
-            if (data.url.status == 3) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Link name has been taken\n\`\`\``);
-            if (data.url.status == 4) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid api key\n\`\`\``);
-            if (data.url.status == 5) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Link includes invalid characters\n\`\`\``);
-            if (data.url.status == 6) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Blocked domain\n\`\`\``);
+            switch(data.url.status) {
+                case 1:
+                    return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Link already has been shortened\n\`\`\``);
+                case 2:
+                    return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid domain, please invlude https:// or http://\n\`\`\``);
+                case 3:
+                    return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Link name has been taken\n\`\`\``);
+                case 4:
+                    return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid api key\n\`\`\``);
+                case 5:
+                    return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Link includes invalid characters\n\`\`\``);
+                case 6:
+                    return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Blocked domain\n\`\`\``);
+            }
 
             msg.channel.send(`\`\`\`asciidoc\nSUCCESS\n=====\n= Shortened URL =\nOriginal :: ${data.url.fullLink}\nShortened :: ${data.url.shortLink}\n\`\`\``);
         });
