@@ -3,4 +3,22 @@
  * @since 27-05-2020
  */
 
-const bot = require("./bot/bot");
+const logger = require("./utils/logger");
+const request = require("request-promise");
+const fs = require("fs");
+
+let version = fs.readFileSync("./version.txt", "UTF-8");
+
+logger.success("Checking for updates")
+request({
+    uri: "https://raw.githubusercontent.com/Kappador/satana/master/version.txt"
+}).then(ver => {
+    if(ver == version) {
+        logger.info("Up to date!")
+        const bot = require("./bot/bot");
+    } else {
+        logger.error(`Outdated version, our version: ${version}, current version: ${ver}`);
+        logger.info("Please update from https://github.com/Kappador/satana/")
+        process.exit(69);
+    }
+});
