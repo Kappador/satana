@@ -9,7 +9,7 @@ const logger = require("../utils/logger");
 
 const {token} = require("../data/cfg.json");
 
-const {Client} = require("discord.js-selfbot");
+const {Client} = require("discord.js");
 const bot = new Client();
 
 let commands = {};
