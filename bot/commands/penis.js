@@ -23,7 +23,7 @@ module.exports = {
             bot.fetchUser(id).then(user => {
                 for(let i = 0; i < Math.floor(Math.random() * 59); i++) penis += "=";
 
-                msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis for ${user.username}:: ${penis}D\n\`\`\``);
+                msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis for ${user.username} :: ${penis}D\n\`\`\``);
             }).catch(() => {
                 msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid user provided.\n\`\`\``);
             });
