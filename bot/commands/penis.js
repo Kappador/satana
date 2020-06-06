@@ -3,7 +3,7 @@
  * @since 02-06-2020
  */
 
-const request = require("request-promise");
+const Discord = require("discord.js");
 
 module.exports = {
     "info": {
@@ -11,16 +11,26 @@ module.exports = {
         "name": "penis",
         "description": "Shows you how big your cock is",
         "aliases": ["pp", "dick", "size"],
-        "syntax": "penis"
+        "syntax": "penis [@user / id]"
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
-
-        if(msg.author.id == "188128887383785472") return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis :: 8=================================================================D\n\`\`\``);
-
         let penis = "8";
-        for(let i = 0; i < Math.floor(Math.random() * 59); i++) penis += "=";
 
-        msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis :: ${penis}D\n\`\`\``);
+        if(args.length >= 1) {
+            let id = (msg.mentions.users.first() ? msg.mentions.users.first().id : args[0]);
+            
+            bot.fetchUser(id).then(user => {
+                for(let i = 0; i < Math.floor(Math.random() * 59); i++) penis += "=";
+
+                msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis for ${user.username}:: ${penis}D\n\`\`\``);
+            }).catch(() => {
+                msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid user provided.\n\`\`\``);
+            });
+        } else {
+            for(let i = 0; i < Math.floor(Math.random() * 59); i++) penis += "=";
+
+            msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nPenis :: ${penis}D\n\`\`\``);
+        }
     }
 }

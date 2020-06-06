@@ -9,7 +9,7 @@ const fs = require("fs");
 
 let version = fs.readFileSync("./version.txt", "UTF-8");
 
-logger.success("Checking for updates")
+logger.success("Checking for updates");
 request({
     uri: "https://raw.githubusercontent.com/Kappador/satana/master/version.txt"
 }).then(ver => {
