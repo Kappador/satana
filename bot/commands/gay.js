@@ -15,9 +15,18 @@ module.exports = {
     },
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
+        
+        if(args.length >= 1) {
+            let id = (msg.mentions.users.first() ? msg.mentions.users.first().id : args[0]);
+            
+            bot.fetchUser(id).then(user => {
+                msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness of ${user.username} :: ${Math.floor(Math.random() * 100) + 1}%\n\`\`\``);
+            }).catch(() => {
+                msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid user provided.\n\`\`\``);
+            });
+        } else {
 
-        if(msg.mentions.users.first() == "568256682921164812") return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness of Kappador :: 0%\n\`\`\``);
-
-        msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness of ${msg.mentions.users.first().username} :: ${Math.floor(Math.random() * 100) + 1}%\n\`\`\``);
+            msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nGayness :: ${Math.floor(Math.random() * 100) + 1}%\n\`\`\``);
+        }
     }
 }

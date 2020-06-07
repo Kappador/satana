@@ -7,6 +7,12 @@ module.exports = (bot, msg) => {
     let content = msg.content;
 
     if(content.startsWith(prefix)) {
+        let responses = JSON.parse(fs.readFileSync("./data/responses.json" ,"UTF-8"));
+
+        if(!!responses[content.replace(prefix, "")]) {
+            return msg.channel.send(responses[content.replace(prefix, "")]);
+        }
+
         let command = cUtil.getCommand(content.replace(prefix, "").split(" ")[0]);
         if(command) {
             let users = JSON.parse(fs.readFileSync("./data/users.json", "UTF-8"));
