@@ -3,8 +3,6 @@
  * @since 02-06-2020
  */
 
-const Discord = require("discord.js");
-
 module.exports = {
     "info": {
         "permission": 1,

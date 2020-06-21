@@ -20,7 +20,7 @@ module.exports = {
             let type = args[0];
 
             switch(type) {
-                case "cat", "c":
+                case "cat":
                     request({
                         uri: "https://catfact.ninja/fact",
                         json: true
@@ -29,7 +29,7 @@ module.exports = {
                     });
 
                     break;
-                case "dog", "d":
+                case "dog":
                     request({
                         uri: "http://dog-api.kinduff.com/api/facts",
                         json: true
@@ -38,7 +38,7 @@ module.exports = {
                     });    
 
                     break;
-                case "random" , "r":
+                case "random":
                     request({
                         uri: "https://uselessfacts.jsph.pl/random.json?language=en",
                         json: true
