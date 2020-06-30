@@ -16,7 +16,7 @@ module.exports = {
     run: (bot, msg, args) => {
         msg.delete().catch(() => {});
         
-        if (msg.mentions.users.size == 0) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Mention someone?\n\`\`\``);;
+        if (msg.mentions.users.size == 0) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Mention someone?\n\`\`\``);
 
         msg.mentions.members.forEach(member => {
             member.ban({reason: ban_message})

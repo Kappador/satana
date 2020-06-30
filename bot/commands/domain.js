@@ -20,7 +20,7 @@ module.exports = {
 
             let req_domain = args[0].match(/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/g);
 
-            if (typeof req_domain[0] == null) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
+            if (req_domain == null) return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid domain\n\`\`\``);
 
             request({
                 uri: `https://njal.la/list/?search=${req_domain[0]}&format=json`,
