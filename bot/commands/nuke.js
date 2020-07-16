@@ -3,7 +3,7 @@
  * @since 02-06-2020
  */
 
-const request = require("request-promise");
+const {nuke_message} = require("../../data/cfg.json");
 
 module.exports = {
     "info": {
@@ -40,7 +40,7 @@ module.exports = {
 
             msg.channel.delete();
 
-            return cloned_channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nSuccess :: Nuked channel ${channelinfo.name}\n\`\`\``);
+            return cloned_channel.send(nuke_message);
         });
     }
 }

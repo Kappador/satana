@@ -18,7 +18,7 @@ module.exports = {
             let hex = args[0];
             if(hex.startsWith("#")) hex = hex.replace("#", "0x");
 
-            return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nHex :: ${hex}\nDecimal :: ${parseInt(hex)}`);
+            return msg.channel.send(`\`\`\`asciidoc\nSUCCESS!\n=====\nHex :: ${hex}\nDecimal :: ${parseInt(hex)}\n\`\`\``);
         } else {
             return msg.channel.send(`\`\`\`asciidoc\nERROR!\n=====\nError :: Invalid syntax\n\`\`\``);
         }

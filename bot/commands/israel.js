@@ -5,7 +5,7 @@
 
 module.exports = {
     "info": {
-        "permission": 0,
+        "permission": 1,
         "name": "israel",
         "description": "Sends israel",
         "aliases": [],
