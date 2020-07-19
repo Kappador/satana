@@ -10,7 +10,7 @@ module.exports = {
         "permission": 1,
         "name": "dog",
         "description": "Gets picture of a dog",
-        "aliases": ["d", "p", "puppy"],
+        "aliases": ["p", "puppy"],
         "syntax": "dog"
     },
     run: (bot, msg, args) => {

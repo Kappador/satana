@@ -9,7 +9,7 @@ module.exports = {
     "info": {
         "permission": 0,
         "name": "neverhaveiever",
-        "description": "Gives you an would you rather question",
+        "description": "Gives you a never have i ever question",
         "aliases": ["nhie", "never"],
         "syntax": "neverhaveiever"
     },
