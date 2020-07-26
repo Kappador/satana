@@ -9,6 +9,9 @@ const fs = require("fs");
 
 let version = fs.readFileSync("./version.txt", "UTF-8");
 
+process.on("unhandledRejection", (err) => {return logger.warning(`Got an unhandled Rejection: ${err}`)})
+process.on("uncaughtException", (err) => {return logger.warning(`Got an unhandled Exception: ${err}`)})
+
 logger.success("Checking for updates");
 request({
     uri: "https://raw.githubusercontent.com/Kappador/satana/master/version.txt"
