@@ -1,7 +1,4 @@
 /data/cfg.json
 /data/users.json
 /data/responses.json
-!/node_modules/
-/node_modules/**
-!/node_modules/discord.js/
-!/node_modules/discord.js/**
+node_modules
